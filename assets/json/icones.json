@@ -1,0 +1,50 @@
+[
+    {
+        "id": 0,
+        "nome": "home",
+        "cor": "#FFFFFF",
+        "tamanho": 24
+    },
+    
+    {
+        "id": 1,
+        "nome": "sports_esports",
+        "cor": "#FFFFFF",
+        "tamanho": 24
+    },
+
+    {
+        "id": 2,
+        "nome": "camera_alt_rounded",
+        "cor": "#FFFFFF",
+        "tamanho": 24
+    },
+
+    {
+        "id": 3,
+        "nome": "auto_awesome",
+        "cor": "#FFFFFF",
+        "tamanho": 24
+    },
+
+    {
+        "id": 4,
+        "nome": "groups",
+        "cor": "#FFFFFF",
+        "tamanho": 24
+    },
+
+    {
+        "id": 5,
+        "nome": "cookie",
+        "cor": "#FFFFFF",
+        "tamanho": 24
+    },
+
+    {
+        "id": 6,
+        "nome": "play_arrow_rounded",
+        "cor": "#FFFFFF",
+        "tamanho": 24
+    }
+]

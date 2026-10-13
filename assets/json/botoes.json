@@ -1,0 +1,85 @@
+[
+      {
+        "id": 0,
+        "nome": "Página Inicial",
+        "pagina": "coloca depois",
+        "icone_id": 0,
+        "cor": "#11151C",
+        "cor_selecionado": "#00FF00",
+        "tamanho_botao": 56,
+        "padding": 8,
+        "arredondamento": 10
+    },
+    
+    {
+        "id": 1,
+        "nome": "Ultimate Clinic Simulator",
+        "pagina": "coloca depois",
+        "icone_id": 1,
+        "cor": "#11151C",
+        "cor_selecionado": "#00FF00",
+        "tamanho_botao": 56,
+        "padding": 8,
+        "arredondamento": 10
+    },
+
+    {
+        "id": 2,
+        "nome": "Galeria de Fotos",
+        "pagina": "coloca depois",
+        "icone_id": 2,
+        "cor": "#11151C",
+        "cor_selecionado": "#00FF00",
+        "tamanho_botao": 56,
+        "padding": 8,
+        "arredondamento": 10
+    },
+
+    {
+        "id": 3,
+        "nome": "Curiosidades",
+        "pagina": "coloca depois",
+        "icone_id": 3,
+        "cor": "#11151C",
+        "cor_selecionado": "#00FF00",
+        "tamanho_botao": 56,
+        "padding": 8,
+        "arredondamento": 10
+    },
+
+    {
+        "id": 4,
+        "nome": "Créditos",
+        "pagina": "coloca depois",
+        "icone_id": 4,
+        "cor": "#11151C",
+        "cor_selecionado": "#00FF00",
+        "tamanho_botao": 56,
+        "padding": 8,
+        "arredondamento": 10
+    },
+
+        {
+        "id": 5,
+        "nome": "Ultimate Clicker",
+        "pagina": "coloca depois",
+        "icone_id": 5,
+        "cor": "#11151C",
+        "cor_selecionado": "#00FF00",
+        "tamanho_botao": 56,
+        "padding": 8,
+        "arredondamento": 10
+    },
+
+    {
+        "id": 6,
+        "nome": "Trailer do Jogo",
+        "pagina": "coloca depois",
+        "icone_id": 6,
+        "cor": "#11151C",
+        "cor_selecionado": "#00FF00",
+        "tamanho_botao": 56,
+        "padding": 8,
+        "arredondamento": 10
+    }
+]
