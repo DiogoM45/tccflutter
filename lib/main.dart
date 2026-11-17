@@ -1,149 +1,20 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'paginas/pagina_inicio.dart';
+import 'paginas/pagina_jogo.dart';
+import 'paginas/pagina_galeria.dart';
+import 'paginas/pagina_curiosidades.dart';
+import 'paginas/pagina_creditos.dart';
+import 'paginas/pagina_desenvolvimento.dart';
+import 'paginas/pagina_trailer.dart';
+import 'construtores/construir_botoes.dart';
+import 'construtores/carregarjson.dart';
 
-Future<List<dynamic>> carregarJson(String caminho) async {
-  final String jsonString = await rootBundle.loadString(caminho);
-  return jsonDecode(jsonString);
-}
-
-Future<List<dynamic>> carregarIcones() {
-  return carregarJson('assets/json/icones.json');
-}
-
-Future<List<dynamic>> carregarImagens() {
-  return carregarJson('assets/json/imagens.json');
-}
-
-Future<List<dynamic>> carregarBotoes() {
-  return carregarJson('assets/json/botoes.json');
-}
-
-Future<List<dynamic>> carregarTextos() {
-  return carregarJson('assets/json/textos.json');
-}
-
-Future<Map<String, List<dynamic>>> carregarDadosBotoesEIcones() async {
-  final List<List<dynamic>> resultados = await Future.wait<List<dynamic>>([
-    carregarBotoes(),
-    carregarIcones(),
-  ]);
-
-  return {
-    'botoes': resultados[0],
-    'icones': resultados[1],
-  };
-}
-
-IconData obterIcone(String nome) {
-  switch (nome) {
-    case 'sports_esports':
-      return Icons.sports_esports;
-
-    case 'home':
-      return Icons.home_outlined;
-
-    case 'info':
-      return Icons.info_outline;
-
-    case 'photo_library':
-      return Icons.photo_library_outlined;
-
-    case 'groups':
-      return Icons.groups_outlined;
-
-    case 'camera_alt_rounded':
-      return Icons.camera_alt_rounded;
-
-    case 'auto_awesome':
-      return Icons.auto_awesome;
-
-    case 'cookie':
-      return Icons.cookie;
-
-    case 'play_arrow_rounded':
-      return Icons.play_arrow_rounded;
-
-    default:
-      return Icons.help_outline;
-  }
-}
-
-Text construirTexto(
-  Map<String, dynamic> dados) {
-  return Text(
-    dados['texto'],
-    textAlign: dados['alinhamento'] == 'center'
-        ? TextAlign.center
-        : dados['alinhamento'] == 'right'
-        ? TextAlign.right
-        : TextAlign.left,
-    style: TextStyle(
-      color: Color(
-        int.parse(dados['cor'].substring(1), radix: 16) + 0xFF000000,
-      ),
-      fontSize: dados['tamanho'].toDouble(),
-      fontWeight: dados['peso'] == 'bold' ? FontWeight.bold : FontWeight.normal,
-      height: dados['altura_linha'].toDouble(),
-    ),
-  );
-}
-
-IconButton construirBotao(
-  Map<String, dynamic> dadosBotao,
-  List<dynamic> icones,) {
-  final icone = icones.firstWhere(
-    (item) => item['id'] == dadosBotao['icone_id'],
-    orElse: () => {
-      'nome': 'help_outline',
-      'cor': '#FFFFFF',
-      'tamanho': 24,
-    },
-  );
-  final corBotao = Color(
-    int.parse(
-      dadosBotao['cor'].substring(1),
-      radix: 16,
-    ) + 0xFF000000,
-  );
-
-  final corIcone = Color(
-    int.parse(
-      icone['cor'].substring(1),
-      radix: 16,
-    ) + 0xFF000000,
-  );
-
-  return IconButton(
-    tooltip: dadosBotao['nome'],
-    onPressed: () {},
-    iconSize: (icone['tamanho'] as num).toDouble(),
-    icon: Icon(
-      obterIcone(icone['nome']),
-      color: corIcone,
-    ),
-    style: IconButton.styleFrom(
-      fixedSize: Size(
-        (dadosBotao['tamanho_botao'] as num).toDouble(),
-        (dadosBotao['tamanho_botao'] as num).toDouble(),
-      ),
-      padding: EdgeInsets.all(
-        (dadosBotao['padding'] as num).toDouble(),
-      ),
-      backgroundColor: corBotao,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(
-          (dadosBotao['arredondamento'] as num).toDouble(),
-        ),
-      ),
-    ),
-  );
-}
 
 void main() {
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -151,14 +22,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, //tira o debug quando rodar aplicação
       home: const MyHomePage(title: 'oitudobem'),
-    );
+
+        theme: ThemeData(
+        fontFamily: GoogleFonts.pressStart2p().fontFamily,
+        ),
+      );
+    }
   }
-}
+
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({
+    super.key,
+    required this.title,
+  });
 
   final String title;
 
@@ -166,88 +45,200 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+
 class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
 
+  bool menuAberto = false;
+  String? paginaSelecionada;
+
+  Widget construirBarraLateral() { // construi a barra lateral com os botões
+      return Container( // contém a barra lateral
+      width: 250,
+      padding: const EdgeInsets.all(8.0),
+      decoration: BoxDecoration(
+      color: const Color.fromRGBO(33, 45, 64, 1),
+      border: Border.all(
+      color: const Color.fromRGBO(214, 104, 83, 1),
+      width: 5,
+      ),
+      ),
+
+    child: Column( // coluna que organiza os botões e o ícone de fechar
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+
+    IconButton( //botão pra fechar o menu, que transforma a variável menuAberto em false, fechando o menu
+      tooltip: 'Fechar menu',
+      onPressed: () {
+      setState(() {
+      menuAberto = false;
+      });
+      },
+      icon: const Icon(
+      Icons.close,
+      color: Colors.white,
+      ),
+      ),
+
+    Expanded( //expanded que traz através do futurebuilder os dados do json e constrói os botões
+      child: FutureBuilder<Map<String, List<dynamic>>>(
+      future: carregarDadosBotoesEIcones(),
+      builder: (context, snapshot) {
+
+      if (snapshot.connectionState == ConnectionState.waiting) { //se a função ainda estiver carregando, mostra um circulo de progresso
+      return const Center(
+        child: CircularProgressIndicator(),
+        );
+        }
+
+      if (snapshot.hasError) { //se a função der erro, mostra uma mensagem de erro
+      return Text(
+        'Erro ao carregar dados:\n${snapshot.error}',
+        style: const TextStyle(color: Colors.white),
+        );
+        }
+
+      if (!snapshot.hasData || //se a função não tiver dados, mostra uma mensagem de erro
+        snapshot.data!['botoes']!.isEmpty ||
+        snapshot.data!['icones']!.isEmpty) {
+      return const Text(
+        'Nenhum dado encontrado.',
+        style: TextStyle(color: Colors.white),
+        );
+        }
+
+      final botoes = snapshot.data!['botoes']!; //pega os dados do json e transforma em uma lista de botões
+      final icones = snapshot.data!['icones']!; //pega os dados do json para gerar ícones para os botões
+
+       return SingleChildScrollView( //singlescrollview que permite rolar a barra lateral caso os botões não caibam na tela....
+        child: Column(
+          children: botoes.map<Widget>((botao) { //mapeia/loopa os botões do json e chama a função construirBotao para construir os botões na barra lateral
+
+        final dadosBotao = Map<String, dynamic>.from(botao); //determina a página que o botão vai abrir, pegando do json a chave 'pagina' e transformando em uma string q vai ser reconhecida pelo operador ternário lá embaixoooo
+          return Padding(
+            padding: const EdgeInsets.only(
+            bottom: 24.0,
+            ),
+
+              child: construirBotao(
+              dadosBotao,
+              icones,     
+              () {
+              (() {
+              paginaSelecionada = dadosBotao['pagina']; //muda o valor de página selecionado para o valor que o último botão possui em seu json
+              });
+              },
+              paginaSelecionada,
+              ),
+              );
+              }).toList(),
+              ),
+              );
+              },
+              ),
+              ),
+              ],
+              ),
+              );
+              }
+
+    Widget construirConteudo() {
+      return Container( // container que graças ao Positioned.fill do stack, preenche toda a tela e recebe o conteúdo da página selecionada
+      decoration: const BoxDecoration(
+      gradient: LinearGradient(
+      colors: [
+            Color.fromRGBO(18, 35, 102, 1),
+            Color.fromRGBO(18, 35, 102, 1),
+          ],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      ),
+      ),
+
+        child: paginaSelecionada == 'inicio' //corrente de operadores ternários que vê qual página foi selecionada e mostra o conteúdo da página correspondente, caso nenhuma seja selecionada, mostra um sizedbox.shrink() que é um widget vazio pra tela ficar limpa
+          ? const PaginaInicio() //a relação de condição ? true : false se aplica em todas...
+          : paginaSelecionada == 'jogo'
+              ? const PaginaJogo()
+              : paginaSelecionada == 'galeria'
+                  ? const PaginaGaleria()
+                  : paginaSelecionada == 'curiosidades'
+                      ? const PaginaCuriosidades()
+                      : paginaSelecionada == 'creditos'
+                          ? const PaginaCreditos()
+                          : paginaSelecionada == 'desenvolvimento'
+                              ? const PaginaDesenvolvimento()
+                              : paginaSelecionada == 'trailer'
+                                  ? const PaginaTrailer()
+                                  : const SizedBox.shrink(),
+    );
+    }
+
+
+ 
+
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        body: Stack( //stack que inicialmente mostra a tela de fundo com o conteúdo da página selecionada, (lemnbra do container lá em cima?)
         children: [
-          Container(
-            width: 100,
-            padding: const EdgeInsets.all(8.0),
-            decoration: BoxDecoration(
-            color: const Color.fromRGBO(33, 45, 64, 1),
-            border: Border.all(
+        Positioned.fill(
+            child: construirConteudo(),
+        ),
+
+      if (menuAberto) //escurece o background quando o menu de botões está aberto, e muda o valor do menu de botões aberto atráves do set state para falso
+      Positioned.fill(
+        child: GestureDetector(
+          onTap: () {
+          setState(() {
+          menuAberto = false;
+          });
+          },
+            child: Container(
+            color: Colors.black54,
+            ),
+            ),
+            ),
+
+
+        
+        if (menuAberto) //se o menu for aberto, mostra o menu durrr
+          Positioned(
+          left: 0,
+          top: 0,
+          bottom: 0,
+            child: construirBarraLateral(),
+          ),
+
+        if (!menuAberto) //botão hamburger que serve de gatilho para abrir o menu
+          Positioned(
+          left: 12,
+          top: 12,
+            child: Container( //containerzinho para o botãozinho hamburgerzinho ficar bonitinho, com borda e arredondado
+              decoration: BoxDecoration(
+              color: const Color.fromRGBO(33, 45, 64, 1),
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
               color: const Color.fromRGBO(214, 104, 83, 1),
-              width: 5,
-            ),
-          ),
+              width: 2,
+              ),
+              ),
 
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                FutureBuilder<Map<String, List<dynamic>>>(
-                  future: carregarDadosBotoesEIcones(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const CircularProgressIndicator();
-                    }
-
-                    if (snapshot.hasError) {
-                      return Text(
-                        'Erro ao carregar dados:\n\n${snapshot.error}',
-                        textAlign: TextAlign.center,
-                      );
-                    }
-
-                    if (!snapshot.hasData ||
-                        snapshot.data!['botoes']!.isEmpty ||
-                        snapshot.data!['icones']!.isEmpty) {
-                      return const Text('Nenhum dado encontrado.');
-                    }
-
-                    final botoes = snapshot.data!['botoes']!;
-                    final icones = snapshot.data!['icones']!;
-
-                        return Column(
-                        children: botoes.map((botao) {
-                         return Padding(
-                          padding: const EdgeInsets.only(bottom: 24.0),
-                           child: construirBotao(
-                          Map<String, dynamic>.from(botao),
-                           icones,
-                           ),
-                          );
-                        }).toList(),
-                  );
+                child: IconButton( //botao hamburger q muda o valor do menu pra aberto, trazendo algumas das funções ali em cima
+                  tooltip: 'Abrir menu',
+                  onPressed: () {
+                  setState(() {
+                  menuAberto = true;
+                  });
                   },
-                ),
-              ], //fim do children do column
-
-            ),
-          ),
-
-Expanded(
-child: Container(
-alignment: Alignment.center,
-decoration: BoxDecoration(
-gradient: LinearGradient(
-colors: [
-const Color.fromRGBO(10, 16, 43, 1),
-const Color.fromRGBO(10, 16, 43, 1),
- ],
-begin: Alignment.topCenter,
-end: Alignment.bottomCenter,
-),
-),
-child: const PaginaInicio(),
-),
-),
-], //fim do children do row
-),
-);
-}
-}
+                    icon: const Icon(
+                    Icons.menu,
+                    color: Colors.white,
+                    ),
+                  ),
+              ),
+              ),
+              ],
+              ),
+              );
+              }
+              }
