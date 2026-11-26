@@ -5,68 +5,70 @@ IconButton construirBotao(
   Map<String, dynamic> dadosBotao,
   List<dynamic> icones,
   VoidCallback aoClicar,
-   String? paginaSelecionada,
+  String? paginaSelecionada,
   ) {
+
     final bool selecionado =
     dadosBotao['pagina'] == paginaSelecionada;
-  final icone = icones.firstWhere(
+    final icone = icones.firstWhere(
     (item) => item['id'] == dadosBotao['icone_id'],
     orElse: () => {
-      'nome': 'help_outline',
-      'cor': '#FFFFFF',
-      'tamanho': 24,
+    'nome': 'help_outline',
+    'cor': '#FFFFFF',
+    'tamanho': 24,
     },
-  );
+    );
   
-  final String codigoCorBotao = selecionado
+    final String codigoCorBotao = selecionado
     ? dadosBotao['cor_selecionado']
     : dadosBotao['cor'];
 
-  final corBotao = Color(
+    final corBotao = Color(
     int.parse(
-      codigoCorBotao.substring(1),
-      radix: 16,
+    codigoCorBotao.substring(1),
+    radix: 16,
     ) + 0xFF000000,
-  );
+    );
 
-  final corIcone = Color(
+    final corIcone = Color(
     int.parse(
-      icone['cor'].substring(1),
-      radix: 16,
+    icone['cor'].substring(1),
+    radix: 16,
     ) + 0xFF000000,
-  );
+    );
 
-  return IconButton(
+    return IconButton(
     tooltip: dadosBotao['nome'],
-    onPressed: () {
-      aoClicar();
+    onPressed: () { 
+    aoClicar();
     },
     iconSize: (icone['tamanho'] as num).toDouble(),
     icon: Icon(
-      obterIcone(icone['nome']),
-      color: corIcone,
+    obterIcone(icone['nome']),
+    color: corIcone,
     ),
+
     style: IconButton.styleFrom(
-      fixedSize: Size(
-        (dadosBotao['tamanho_botao'] as num).toDouble(),
-        (dadosBotao['tamanho_botao'] as num).toDouble(),
-      ),
-      padding: EdgeInsets.all(
-        (dadosBotao['padding'] as num).toDouble(),
-      ),
-      backgroundColor: corBotao,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(
-          (dadosBotao['arredondamento'] as num).toDouble(),
-        ),
-      ),
+    fixedSize: Size(
+    (dadosBotao['tamanho_botao'] as num).toDouble(),
+    (dadosBotao['tamanho_botao'] as num).toDouble(),
     ),
-  );
-}
+    padding: EdgeInsets.all(
+    (dadosBotao['padding'] as num).toDouble(),
+    ),
+    backgroundColor: corBotao,
+    shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(
+    (dadosBotao['arredondamento'] as num).toDouble(),
+    ),
+    ),
+    ),
+    );
+    }
 
 
-IconData obterIcone(String nome) {
-  switch (nome) {
+    IconData obterIcone(String nome) {
+    switch (nome) {
     case 'sports_esports':
       return Icons.sports_esports;
 

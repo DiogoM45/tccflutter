@@ -7,10 +7,10 @@ Widget construirCartaoCredito(Credito credito) {
     child: Container(
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
-      color: const Color.fromRGBO(0, 0, 0, 1),
+      color: const Color.fromARGB(255, 107, 109, 34),
       borderRadius: BorderRadius.circular(15.0),
       border: Border.all(
-      color: const Color.fromRGBO(189, 42, 13, 1),
+      color: const Color.fromARGB(255, 247, 249, 194),
        width: 5,
       ),
       ),
@@ -25,10 +25,10 @@ Widget construirCartaoCredito(Credito credito) {
     Container(
     clipBehavior: Clip.antiAlias,
     decoration: BoxDecoration(
-    color: const Color.fromRGBO(132, 147, 171, 1),
+    color: const Color.fromARGB(255, 247, 249, 194),
     borderRadius: BorderRadius.circular(15.0),
     border: Border.all(
-    color: const Color.fromARGB(255, 118, 63, 51),
+    color: const Color.fromARGB(255, 247, 249, 194),
     width: 5,
     ),
     ),
@@ -48,7 +48,7 @@ Widget construirCartaoCredito(Credito credito) {
 
         const SizedBox(height: 16.0),
 
-      Text(
+        Text(
         credito.nome,
         textAlign: TextAlign.center,
         style: const TextStyle(

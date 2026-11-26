@@ -5,7 +5,7 @@ import 'paginas/pagina_jogo.dart';
 import 'paginas/pagina_galeria.dart';
 import 'paginas/pagina_curiosidades.dart';
 import 'paginas/pagina_creditos.dart';
-import 'paginas/pagina_desenvolvimento.dart';
+import 'paginas/pagina_empresa.dart';
 import 'paginas/pagina_trailer.dart';
 import 'construtores/construir_botoes.dart';
 import 'construtores/carregarjson.dart';
@@ -14,7 +14,6 @@ import 'construtores/carregarjson.dart';
 void main() {
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -48,6 +47,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  late Future<Map<String, List<dynamic>>> _dadosMenu;
+
+  @override
+  void initState() {
+    super.initState();
+    _dadosMenu = carregarDadosBotoesEIcones(); 
+  }
+
   bool menuAberto = false;
   String? paginaSelecionada;
 
@@ -56,10 +63,10 @@ class _MyHomePageState extends State<MyHomePage> {
       width: 250,
       padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
-      color: const Color.fromRGBO(33, 45, 64, 1),
+      color: const Color.fromARGB(255, 184, 144, 153),
       border: Border.all(
-      color: const Color.fromRGBO(214, 104, 83, 1),
-      width: 5,
+      color: const Color.fromARGB(255, 247, 249, 194),
+      width: 10,
       ),
       ),
 
@@ -82,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     Expanded( //expanded que traz através do futurebuilder os dados do json e constrói os botões
       child: FutureBuilder<Map<String, List<dynamic>>>(
-      future: carregarDadosBotoesEIcones(),
+      future: _dadosMenu,
       builder: (context, snapshot) {
 
       if (snapshot.connectionState == ConnectionState.waiting) { //se a função ainda estiver carregando, mostra um circulo de progresso
@@ -124,8 +131,9 @@ class _MyHomePageState extends State<MyHomePage> {
               dadosBotao,
               icones,     
               () {
-              (() {
+              setState(() {
               paginaSelecionada = dadosBotao['pagina']; //muda o valor de página selecionado para o valor que o último botão possui em seu json
+              menuAberto = false;
               });
               },
               paginaSelecionada,
@@ -147,8 +155,8 @@ class _MyHomePageState extends State<MyHomePage> {
       decoration: const BoxDecoration(
       gradient: LinearGradient(
       colors: [
-            Color.fromRGBO(18, 35, 102, 1),
-            Color.fromRGBO(18, 35, 102, 1),
+            Color.fromRGBO(230, 132, 155, 1),
+            Color.fromRGBO(230, 132, 155, 1),
           ],
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
@@ -165,13 +173,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       ? const PaginaCuriosidades()
                       : paginaSelecionada == 'creditos'
                           ? const PaginaCreditos()
-                          : paginaSelecionada == 'desenvolvimento'
-                              ? const PaginaDesenvolvimento()
+                          : paginaSelecionada == 'empresa'
+                              ? const PaginaEmpresa()
                               : paginaSelecionada == 'trailer'
                                   ? const PaginaTrailer()
                                   : const SizedBox.shrink(),
-    );
-    }
+                                  );
+                                  }
 
 
  
@@ -182,63 +190,62 @@ class _MyHomePageState extends State<MyHomePage> {
         body: Stack( //stack que inicialmente mostra a tela de fundo com o conteúdo da página selecionada, (lemnbra do container lá em cima?)
         children: [
         Positioned.fill(
-            child: construirConteudo(),
+        child: construirConteudo(),
         ),
 
       if (menuAberto) //escurece o background quando o menu de botões está aberto, e muda o valor do menu de botões aberto atráves do set state para falso
       Positioned.fill(
-        child: GestureDetector(
-          onTap: () {
-          setState(() {
-          menuAberto = false;
-          });
-          },
-            child: Container(
-            color: Colors.black54,
-            ),
-            ),
-            ),
+      child: GestureDetector(
+        onTap: () {
+        setState(() {
+        menuAberto = false;
+        });
+        },
 
+        child: Container(
+        color: Colors.black54,
+        ),
+        ),
+        ),
 
-        
-        if (menuAberto) //se o menu for aberto, mostra o menu durrr
+        if (menuAberto) //se o menu for aberto, mostra o menu 
           Positioned(
           left: 0,
           top: 0,
           bottom: 0,
-            child: construirBarraLateral(),
+          child: construirBarraLateral(),
           ),
 
         if (!menuAberto) //botão hamburger que serve de gatilho para abrir o menu
           Positioned(
           left: 12,
           top: 12,
-            child: Container( //containerzinho para o botãozinho hamburgerzinho ficar bonitinho, com borda e arredondado
-              decoration: BoxDecoration(
-              color: const Color.fromRGBO(33, 45, 64, 1),
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-              color: const Color.fromRGBO(214, 104, 83, 1),
-              width: 2,
-              ),
-              ),
+          child: Container( //container para o botão hamburger ficar bonitinho, com borda e arredondado
+            decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 164, 175, 122),
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+            color: const Color.fromARGB(255, 247, 249, 194),
+            width: 6,
+            ),
+            ),
 
-                child: IconButton( //botao hamburger q muda o valor do menu pra aberto, trazendo algumas das funções ali em cima
-                  tooltip: 'Abrir menu',
-                  onPressed: () {
-                  setState(() {
-                  menuAberto = true;
-                  });
-                  },
-                    icon: const Icon(
-                    Icons.menu,
-                    color: Colors.white,
-                    ),
-                  ),
-              ),
-              ),
-              ],
-              ),
-              );
-              }
-              }
+            child: IconButton( //botao hamburger q muda o valor do menu pra aberto, trazendo algumas das funções ali em cima
+            tooltip: 'Abrir menu',
+            onPressed: () {
+            setState(() {
+            menuAberto = true;
+            });
+            },
+            icon: const Icon(
+            Icons.menu,
+            color: Color.fromARGB(255, 255, 255, 255),
+            ),
+            ),
+            ),
+            ),
+            ],
+            ),
+            );
+            }
+            }

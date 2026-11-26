@@ -61,8 +61,8 @@
 
         {
         "id": 5,
-        "nome": "Desenvolvimento do Jogo",
-        "pagina": "desenvolvimento",
+        "nome": "Empresa",
+        "pagina": "empresa",
         "icone_id": 5,
         "cor": "#11151C",
         "cor_selecionado": "#00FF00",
