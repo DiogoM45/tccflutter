@@ -34,8 +34,6 @@ Por ter sido construída em Flutter Web, a aplicação não exige a instalação
 
 *(Nota: Para rodar o projeto localmente em modo de desenvolvimento, é necessário ter o Flutter SDK instalado e executar o comando `flutter run -d chrome` na raiz do projeto).*
 
----
-| **Créditos** | Grade responsiva exibindo as fotos, cargos e contribuições de cada membro da equipe. | <img src="URL_DA_IMAGEM_6" width="250" alt="Página de Créditos"> |
-| **Menu Lateral** | Menu retrátil sobreposto à tela, construído dinamicamente via arquivos JSON. | <img src="URL_DA_IMAGEM_7" width="250" alt="Menu Lateral Aberto"> |
+
 | **Botão do Menu** | Detalhe do botão flutuante (hambúrguer) que aciona a abertura do menu lateral. | <img src="URL_DA_IMAGEM_8" width="250" alt="Botão Hambúrguer"> |
 | **Trailer** | Integração nativa de iframe para reprodução do vídeo de apresentação do jogo via YouTube. | <img src="URL_DA_IMAGEM_9" width="250" alt="Página de Trailer"> |
