@@ -35,18 +35,6 @@ Por ter sido construída em Flutter Web, a aplicação não exige a instalação
 *(Nota: Para rodar o projeto localmente em modo de desenvolvimento, é necessário ter o Flutter SDK instalado e executar o comando `flutter run -d chrome` na raiz do projeto).*
 
 ---
-
-## 4. Demonstração Visual das Telas
-
-A tabela a seguir apresenta as principais interfaces do sistema, demonstrando a aplicação da identidade visual e a disposição dos componentes.
-
-| Tela | Descrição | Visualização |
-| :--- | :--- | :--- |
-| **Página Inicial** | Tela de boas-vindas contendo o resumo do projeto e os cartões de atalho para as demais seções. | <img src="URL_DA_IMAGEM_1" width="250" alt="Página Inicial"> |
-| **Página do Jogo** | Apresentação detalhada do jogo, utilizando sistema de abas (Personagens, Minigames, etc.) para organizar o conteúdo. | <img src="URL_DA_IMAGEM_2" width="250" alt="Página do Jogo"> |
-| **Galeria (Filtro)** | Sistema de filtragem dinâmica de imagens, permitindo a visualização de modelos 3D e capturas de tela. | <img src="URL_DA_IMAGEM_3" width="250" alt="Galeria"> |
-| **Empresa** | Página institucional apresentando a história, identidade visual e mascote da Mechanical Bromance. | <img src="URL_DA_IMAGEM_4" width="250" alt="Página da Empresa"> |
-| **Curiosidades** | Lista de fatos e curiosidades sobre os bastidores do desenvolvimento do jogo. | <img src="URL_DA_IMAGEM_5" width="250" alt="Página de Curiosidades"> |
 | **Créditos** | Grade responsiva exibindo as fotos, cargos e contribuições de cada membro da equipe. | <img src="URL_DA_IMAGEM_6" width="250" alt="Página de Créditos"> |
 | **Menu Lateral** | Menu retrátil sobreposto à tela, construído dinamicamente via arquivos JSON. | <img src="URL_DA_IMAGEM_7" width="250" alt="Menu Lateral Aberto"> |
 | **Botão do Menu** | Detalhe do botão flutuante (hambúrguer) que aciona a abertura do menu lateral. | <img src="URL_DA_IMAGEM_8" width="250" alt="Botão Hambúrguer"> |
