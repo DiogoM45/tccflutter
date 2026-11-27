@@ -1,17 +1,53 @@
-# tccflutter
+# Ultimate Clinic Simulator para Pomo de Eris- Aplicação Web/Mobile
 
-A new Flutter project.
+Este repositório armazena o código-fonte da aplicação de apresentação e documentação do projeto de gamificação "Ultimate Clinic Simulator", desenvolvido pela empresa Mechanical Bromance. O sistema foi construído utilizando o framework Flutter e a linguagem Dart, com foco em execução multiplataforma (com otimização para Web). A aplicação mobile assim como jogo é uma divulgação para a empresa cliente Pomo de Eris.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 1. O que é a Aplicação
 
-A few resources to get you started if this is your first Flutter project:
+A presente aplicação consiste em um portal interativo que atua como uma extensão do jogo principal (desenvolvido na engine Unity). Seu objetivo é fornecer aos usuários e avaliadores uma visão detalhada dos bastidores do projeto.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+A aplicação centraliza informações essenciais em diferentes seções, permitindo a exploração de:
+*   **Galeria:** Catálogo de imagens divididas entre modelos 3D de personagens, capturas de tela dos minigames e interfaces do jogo.
+*   **O Jogo:** Detalhamento das mecânicas, história e minigames da Unity, dividido em abas dinâmicas.
+*   **Curiosidades e Empresa:** Contextualização da lore do jogo e apresentação institucional da desenvolvedora.
+*   **Créditos:** Identificação e atribuição de funções para todos os membros da equipe de desenvolvimento.
+*   **Trailer:** Player de vídeo integrado para exibição do trailer oficial do jogo.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 2. Como Interagir com a Aplicação
+
+A interface foi projetada para ser intuitiva e responsiva, adaptando-se a diferentes tamanhos de tela (computadores, tablets e smartphones). A interação ocorre das seguintes formas:
+
+*   **Navegação Principal:** O acesso às telas é feito por meio de um menu lateral dinâmico, acionado pelo botão de menu (ícone de três linhas). O menu sobrepõe o conteúdo atual com um fundo escurecido para facilitar a leitura e pode ser fechado ao clicar fora dele ou no botão "X".
+*   **Filtros de Conteúdo:** Páginas como a Galeria e a seção do Jogo utilizam botões de seleção (Choice Chips). Ao clicar nestes botões, o conteúdo é filtrado instantaneamente na tela, sem a necessidade de recarregar a página.
+*   **Rolagem:** Todas as telas possuem barras de rolagem verticais para acomodar conteúdos extensos, como a lista de curiosidades e a página da empresa.
+*   **Interação com Mídia:** Na página de Trailer, o usuário pode interagir diretamente com o player do YouTube incorporado (reproduzir, pausar, ajustar volume e alternar para tela cheia).
+
+## 3. Como Acessar
+
+Por ter sido construída em Flutter Web, a aplicação não exige a instalação de arquivos executáveis (APK ou EXE) para ser visualizada em computadores. O acesso é realizado diretamente pelo navegador de internet.
+
+1.  Certifique-se de estar utilizando um navegador atualizado (Google Chrome, Microsoft Edge, Firefox, etc.).
+2.  Acesse o link de deploy da aplicação: **[INSERIR O LINK DO SEU DEPLOY AQUI, ex: GitHub Pages, Firebase Hosting, Vercel]**.
+3.  A aplicação carregará automaticamente e estará pronta para uso.
+
+*(Nota: Para rodar o projeto localmente em modo de desenvolvimento, é necessário ter o Flutter SDK instalado e executar o comando `flutter run -d chrome` na raiz do projeto).*
+
+---
+
+## 4. Demonstração Visual das Telas
+
+A tabela a seguir apresenta as principais interfaces do sistema, demonstrando a aplicação da identidade visual e a disposição dos componentes.
+
+| Tela | Descrição | Visualização |
+| :--- | :--- | :--- |
+| **Página Inicial** | Tela de boas-vindas contendo o resumo do projeto e os cartões de atalho para as demais seções. | <img src="URL_DA_IMAGEM_1" width="250" alt="Página Inicial"> |
+| **Página do Jogo** | Apresentação detalhada do jogo, utilizando sistema de abas (Personagens, Minigames, etc.) para organizar o conteúdo. | <img src="URL_DA_IMAGEM_2" width="250" alt="Página do Jogo"> |
+| **Galeria (Filtro)** | Sistema de filtragem dinâmica de imagens, permitindo a visualização de modelos 3D e capturas de tela. | <img src="URL_DA_IMAGEM_3" width="250" alt="Galeria"> |
+| **Empresa** | Página institucional apresentando a história, identidade visual e mascote da Mechanical Bromance. | <img src="URL_DA_IMAGEM_4" width="250" alt="Página da Empresa"> |
+| **Curiosidades** | Lista de fatos e curiosidades sobre os bastidores do desenvolvimento do jogo. | <img src="URL_DA_IMAGEM_5" width="250" alt="Página de Curiosidades"> |
+| **Créditos** | Grade responsiva exibindo as fotos, cargos e contribuições de cada membro da equipe. | <img src="URL_DA_IMAGEM_6" width="250" alt="Página de Créditos"> |
+| **Menu Lateral** | Menu retrátil sobreposto à tela, construído dinamicamente via arquivos JSON. | <img src="URL_DA_IMAGEM_7" width="250" alt="Menu Lateral Aberto"> |
+| **Botão do Menu** | Detalhe do botão flutuante (hambúrguer) que aciona a abertura do menu lateral. | <img src="URL_DA_IMAGEM_8" width="250" alt="Botão Hambúrguer"> |
+| **Trailer** | Integração nativa de iframe para reprodução do vídeo de apresentação do jogo via YouTube. | <img src="URL_DA_IMAGEM_9" width="250" alt="Página de Trailer"> |
