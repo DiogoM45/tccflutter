@@ -12,7 +12,7 @@ const List<Credito> creditos = [ //uma array com os dados que seguem o modelo de
   Credito(
     nome: 'Diogo Meireles de Jesus',
     cargo: 'VICE LÍDER, PROGRAMADOR FLUTTER E DOCUMENTADOR',
-    caminhoImagem: 'assets/imagens/logo.jpeg',
+    caminhoImagem: 'assets/imagens/creditos/diogo.jpeg',
     descricao: 'Responsável por desenvolver a interface do usuário e criação do aplicativo através do Flutter, também responsável por grande parte da documentação principal do projeto.',
   ),
   
@@ -33,7 +33,7 @@ const List<Credito> creditos = [ //uma array com os dados que seguem o modelo de
   Credito(
     nome: 'Vinícius Figueiredo Serra',
     cargo: 'PROGRAMADOR UNITY E DESIGNER',
-    caminhoImagem: 'assets/imagens/creditos/figuiredo.jpeg',
+    caminhoImagem: 'assets/imagens/creditos/figueiredotrue.jpeg',
     descricao: 'Programador Unity responsável pela criação de boa parte dos minigames e outras mecânicas da gamificação, junto com suas observações de design de minigames.  '
   )
 ];

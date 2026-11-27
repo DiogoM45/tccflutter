@@ -91,6 +91,8 @@ class _PaginaJogoState extends State<PaginaJogo> {
     Widget _construirConteudo() {
     switch (_abaSelecionada) { //troca a exibição dependendo do valor recebido, recebendo valores diferentes graças ao SetState()
 
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
       case 0: //personagens
       return Column(
       children: [
@@ -112,7 +114,7 @@ class _PaginaJogoState extends State<PaginaJogo> {
         width: 4,
         ),
         ),
-        child: Image.asset('assets/imagens/galeria/visaomab.jpeg', width: 600),
+        child: Image.asset('assets/imagens/galeria/personagens/mabperfil.jpg', width: 600),
         ),
 
          _criarCardTexto(
@@ -132,11 +134,13 @@ class _PaginaJogoState extends State<PaginaJogo> {
         width: 4,
         ),
         ),
-        child: Image.asset('assets/imagens/galeria/visaomab.jpeg', width: 600),
+        child: Image.asset('assets/imagens/galeria/personagens/lanaperfil.jpg', width: 600),
         ),
 
         ],
         );
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
       case 1: //minigames
       return Column(
@@ -159,7 +163,7 @@ class _PaginaJogoState extends State<PaginaJogo> {
         width: 4,
         ),
         ),
-        child: Image.asset('assets/imagens/galeria/visaomab.jpeg', width: 600),
+        child: Image.asset('assets/imagens/galeria/minigames/massagem.jpeg', width: 600),
         ),
 
         _criarCardTexto(
@@ -179,7 +183,7 @@ class _PaginaJogoState extends State<PaginaJogo> {
         width: 4,
         ),
         ),
-        child: Image.asset('assets/imagens/galeria/visaomab.jpeg', width: 600),
+        child: Image.asset('assets/imagens/galeria/minigames/manicure.jpeg', width: 600),
         ),
 
         _criarCardTexto(
@@ -199,7 +203,7 @@ class _PaginaJogoState extends State<PaginaJogo> {
         width: 4,
         ),
         ),
-        child: Image.asset('assets/imagens/galeria/visaomab.jpeg', width: 600),
+        child: Image.asset('assets/imagens/galeria/minigames/depilação.jpeg', width: 600),
         ),
 
         _criarCardTexto(
@@ -219,7 +223,7 @@ class _PaginaJogoState extends State<PaginaJogo> {
         width: 4,
         ),
         ),
-        child: Image.asset('assets/imagens/galeria/visaomab.jpeg', width: 600),
+        child: Image.asset('assets/imagens/galeria/minigames/bronzeamento.jpeg', width: 600),
         ),
 
         _criarCardTexto(
@@ -239,7 +243,7 @@ class _PaginaJogoState extends State<PaginaJogo> {
         width: 4,
         ),
         ),
-        child: Image.asset('assets/imagens/galeria/visaomab.jpeg', width: 600),
+        child: Image.asset('assets/imagens/galeria/minigames/hidromassagem.jpeg', width: 600),
         ),
 
         _criarCardTexto(
@@ -259,11 +263,13 @@ class _PaginaJogoState extends State<PaginaJogo> {
         width: 4,
         ),
         ),
-        child: Image.asset('assets/imagens/galeria/visaomab.jpeg', width: 600),
+        child: Image.asset('assets/imagens/galeria/minigames/micro.jpg', width: 600),
         ),
 
         ],
         );
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
       case 2: //interface
       return Column(
@@ -286,7 +292,7 @@ class _PaginaJogoState extends State<PaginaJogo> {
         width: 4,
         ),
         ),
-        child: Image.asset('assets/imagens/galeria/visaomab.jpeg', width: 600),
+        child: Image.asset('assets/imagens/galeria/interface/menuprincipal.jpg', width: 600),
         ),
 
         _criarCardTexto(
@@ -306,7 +312,7 @@ class _PaginaJogoState extends State<PaginaJogo> {
         width: 4,
         ),
         ),
-        child: Image.asset('assets/imagens/galeria/visaomab.jpeg', width: 600),
+        child: Image.asset('assets/imagens/galeria/interface/menupausa.jpeg', width: 600),
         ),
 
         _criarCardTexto(
@@ -315,7 +321,7 @@ class _PaginaJogoState extends State<PaginaJogo> {
         ),
 
         Container(
-        width: 800, 
+        width: 400, 
         margin: const EdgeInsets.only(bottom: 24.0),
         padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
@@ -326,11 +332,13 @@ class _PaginaJogoState extends State<PaginaJogo> {
         width: 4,
         ),
         ),
-        child: Image.asset('assets/imagens/galeria/visaomab.jpeg', width: 600),
+        child: Image.asset('assets/imagens/galeria/interface/procedimentos.jpg', width: 600),
         ),
 
         ],
         );
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
       case 3: //mecânicas
       return Column(
@@ -342,7 +350,7 @@ class _PaginaJogoState extends State<PaginaJogo> {
         ),
 
         Container(
-        width: 800, 
+        width: 600, 
         margin: const EdgeInsets.only(bottom: 24.0),
         padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
@@ -353,7 +361,7 @@ class _PaginaJogoState extends State<PaginaJogo> {
         width: 4,
         ),
         ),
-        child: Image.asset('assets/imagens/galeria/visaomab.jpeg', width: 600),
+        child: Image.asset('assets/imagens/wasd.png', width: 600),
         ),
 
         _criarCardTexto(
@@ -395,7 +403,7 @@ class _PaginaJogoState extends State<PaginaJogo> {
         width: 4,
         ),
         ),
-        child: Image.asset('assets/imagens/galeria/visaomab.jpeg', width: 600),
+        child: Image.asset('assets/imagens/galeria/minigames/solitacaobotao.jpeg', width: 600),
         ),
 
         ],

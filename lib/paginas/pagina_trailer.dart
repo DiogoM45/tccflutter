@@ -62,7 +62,7 @@ class _PaginaTrailerState extends State<PaginaTrailer> {
       child: AspectRatio(
       aspectRatio: 16 / 9, //mantém o tamanho padrão de um vídeo do youtube independente do tamanho da tela
 
-      child: YoutubeIframe(videoId: 'dQw4w9WgXcQ'), //widget personalizado
+      child: YoutubeIframe(videoId: 'Adi5VLLeuAI?si=-Kr8bNjHMd6g0fcT'), //widget personalizado
       ),
       ),
       ),

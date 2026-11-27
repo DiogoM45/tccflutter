@@ -63,6 +63,9 @@ flutter:
     - assets/imagens/
     - assets/imagens/creditos/
     - assets/imagens/galeria/
+    - assets/imagens/galeria/interface/
+    - assets/imagens/galeria/personagens/    
+    - assets/imagens/galeria/minigames/
     - assets/json/icones.json
     - assets/json/botoes.json
   # To add assets to your application, add an assets section, like this:
