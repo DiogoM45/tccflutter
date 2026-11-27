@@ -4,7 +4,7 @@ import '../modelos/imagem_galeria.dart';
 Widget construirImagemGaleria(ImagemGaleria imagem) { //constroi o cartão para cada imagem
   return SizedBox(
     width: 250, 
-    child: Column(
+    child: Column( //column que determina a organização dos cartões da imagem
 
       mainAxisSize: MainAxisSize.min,
       children: [  
@@ -34,7 +34,7 @@ Widget construirImagemGaleria(ImagemGaleria imagem) { //constroi o cartão para 
         
         const SizedBox(height: 8.0),
 
-      Text( //texto
+      Text( //texto de titulo da imagem
       imagem.titulo,
       textAlign: TextAlign.center,
       style: const TextStyle(
@@ -47,7 +47,7 @@ Widget construirImagemGaleria(ImagemGaleria imagem) { //constroi o cartão para 
       const SizedBox(height: 4.0),
 
       Text(
-        imagem.descricao, //descrição
+        imagem.descricao, //descrição da imagem
         textAlign: TextAlign.center,
         style: const TextStyle(
         fontSize: 10,

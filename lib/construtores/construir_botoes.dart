@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 
-IconButton construirBotao(
+IconButton construirBotao( // função que constrói o botão do menu com base nos dados do json
   Map<String, dynamic> dadosBotao,
   List<dynamic> icones,
   VoidCallback aoClicar,
   String? paginaSelecionada,
   ) {
 
-    final bool selecionado =
+    final bool selecionado = //usa um bool para verificar se botão = página
     dadosBotao['pagina'] == paginaSelecionada;
-    final icone = icones.firstWhere(
+    final icone = icones.firstWhere( //procura o icone com base no id
     (item) => item['id'] == dadosBotao['icone_id'],
     orElse: () => {
     'nome': 'help_outline',
@@ -19,36 +19,36 @@ IconButton construirBotao(
     },
     );
   
-    final String codigoCorBotao = selecionado
+    final String codigoCorBotao = selecionado //define a cor do botão, selecionado = uma cor, não selecionado = outra
     ? dadosBotao['cor_selecionado']
     : dadosBotao['cor'];
 
-    final corBotao = Color(
+    final corBotao = Color( //converte o hexadecimal para o color do flutter
     int.parse(
     codigoCorBotao.substring(1),
     radix: 16,
     ) + 0xFF000000,
     );
 
-    final corIcone = Color(
+    final corIcone = Color(  //converte o hexadecimal para o color do flutter
     int.parse(
     icone['cor'].substring(1),
     radix: 16,
     ) + 0xFF000000,
     );
 
-    return IconButton(
+    return IconButton(   // 6. Monta o widget visual do botão
     tooltip: dadosBotao['nome'],
-    onPressed: () { 
+    onPressed: () { //On pressed = aoClicar
     aoClicar();
     },
-    iconSize: (icone['tamanho'] as num).toDouble(),
+    iconSize: (icone['tamanho'] as num).toDouble(), //tamanho do icone
     icon: Icon(
-    obterIcone(icone['nome']),
+    obterIcone(icone['nome']), //converte string = icone
     color: corIcone,
     ),
 
-    style: IconButton.styleFrom(
+    style: IconButton.styleFrom( //aplica as propiedades do json para os botões
     fixedSize: Size(
     (dadosBotao['tamanho_botao'] as num).toDouble(),
     (dadosBotao['tamanho_botao'] as num).toDouble(),
@@ -67,7 +67,7 @@ IconButton construirBotao(
     }
 
 
-    IconData obterIcone(String nome) {
+    IconData obterIcone(String nome) { //traduções de string de icone do json = icones reais
     switch (nome) {
     case 'sports_esports':
       return Icons.sports_esports;

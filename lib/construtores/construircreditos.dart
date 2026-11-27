@@ -4,6 +4,7 @@ import '../modelos/credito.dart';
 Widget construirCartaoCredito(Credito credito) {
   return SizedBox(
     width: 220, 
+
     child: Container(
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
@@ -19,9 +20,9 @@ Widget construirCartaoCredito(Credito credito) {
     child: Column(
     mainAxisSize: MainAxisSize.min,
     children: [
-     const SizedBox(height: 16.0),
 
-         
+    const SizedBox(height: 16.0),
+
     Container(
     clipBehavior: Clip.antiAlias,
     decoration: BoxDecoration(

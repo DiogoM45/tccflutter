@@ -99,7 +99,7 @@ class _PaginaJogoState extends State<PaginaJogo> {
 
         _criarCardTexto(
         titulo: 'Mab, O Protagonista',
-        texto: 'No universo do jogo, Mab é um robô desenvolvido para a clínica Pomo de Eris como alternativa para a contratação de funcionários não experientes na clínica. O jogo apresenta a primeira consulta real de Mab após tempos de treinamento.',
+        texto: 'No universo do jogo, Mab é um robô funcionário experiente que foi contratado pela empresa por falta de mão de obra. Ele já tem anos de experiência na clínica, e se tornou quase um mascote da clínica com o passar do tempo, com entusiastas de todos os lugares do mundo querendo ter uma sessão com o "robô massagista"',
         ),
 
         Container(
@@ -119,7 +119,7 @@ class _PaginaJogoState extends State<PaginaJogo> {
 
          _criarCardTexto(
         titulo: 'Lana, A Cliente',
-        texto: 'A cliente Lana é uma cliente veterana na clínica, que aceitou voluntariamente participar do processo de avaliação do robô Mab como principal árbitra. Avaliando a qualidade, velocidade e eficiência dos procedimentos feitos pelo protagonista.',
+        texto: 'Lana é uma cliente veterana da clínica, que após um tempo sem marcar nenhuma consulta, se espanta com a notícia do funcionário distinto dos outros e marca uma tarde na clínica para conhecer Mab e suas tão faladas habilidades.',
         ),       
 
         Container(

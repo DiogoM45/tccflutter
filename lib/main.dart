@@ -216,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: construirBarraLateral(),
           ),
 
-        if (!menuAberto) //botão hamburger que serve de gatilho para abrir o menu
+        if (!menuAberto) //condição do botão hamburger que serve de gatilho para abrir o menu
           Positioned(
           left: 12,
           top: 12,
