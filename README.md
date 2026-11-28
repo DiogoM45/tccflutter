@@ -33,7 +33,3 @@ Por ter sido construída em Flutter Web, a aplicação não exige a instalação
 3.  A aplicação carregará automaticamente e estará pronta para uso.
 
 *(Nota: Para rodar o projeto localmente em modo de desenvolvimento, é necessário ter o Flutter SDK instalado e executar o comando `flutter run -d chrome` na raiz do projeto).*
-
-
-| **Botão do Menu** | Detalhe do botão flutuante (hambúrguer) que aciona a abertura do menu lateral. | <img src="URL_DA_IMAGEM_8" width="250" alt="Botão Hambúrguer"> |
-| **Trailer** | Integração nativa de iframe para reprodução do vídeo de apresentação do jogo via YouTube. | <img src="URL_DA_IMAGEM_9" width="250" alt="Página de Trailer"> |
